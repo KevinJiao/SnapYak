@@ -11,5 +11,5 @@ class ListImageView(ListView):
     template_name='image_list.html'
 
 def ImageList(request):
-    context_dict={'list':Image.objects.all()}
+    context_dict={'list':Image.objects.order_by('-time')}
     return render(request, 'images.html', context_dict)

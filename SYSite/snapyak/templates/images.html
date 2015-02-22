@@ -9,8 +9,6 @@
     <body>
     <ul>
         {% for pic in list %}
-            <li>{{ pic.path }}</li>
-            "stuff"
             <img src="{% static pic.path %}" />
         {% endfor %}
     </ul>
