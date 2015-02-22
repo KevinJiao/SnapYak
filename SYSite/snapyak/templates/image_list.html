@@ -1,0 +1,9 @@
+<h1>Vote here</h1>
+{% load staticfiles %}
+
+<ul>
+{% for image in image_list %}
+    <li class = "Image">{{image.time}}</li>
+        <img src=" {% static "images/123456.jpg" %}" alt= "Picture here" />
+    {%endfor%}
+</ul>
