@@ -52,3 +52,8 @@ docs/_build/
 
 # PyBuilder
 target/
+
+snaps.db
+SYSite/static/*
+SYSite/snapyak/migrations
+SYSite/snaps.db

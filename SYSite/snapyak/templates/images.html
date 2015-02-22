@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title> Vote Here </title>
+    </head>
+    <body>
+    <ul>
+        {% for pic in list %}
+            <li>{{ pic.path }}</li>
+            "stuff"
+            <img src="{% static pic.path %}" />
+        {% endfor %}
+    </ul>
+    <img src="{%static path0 %}" alt = "stuff"/>
+    </body>
+</html>

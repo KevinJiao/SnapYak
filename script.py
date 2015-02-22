@@ -1,8 +1,14 @@
 from pprint import pprint
 from pysnap import get_file_extension, Snapchat
-import json
 import os.path
+import json
 import time
+import os 
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "SYSite.SYSite.settings") 
+from SYSite.SYSite import settings
+from SYSite.snapyak.models import Image
+from django.core.management import setup_environ
 
 from pysnap.utils import (encrypt, decrypt, decrypt_story,
                           make_media_id, request)
@@ -36,12 +42,11 @@ def init():
     s=Snapchat()
     s.login('snapstanford', 'C4rdinal')
     s.update_privacy(False)
-    while True:
-        snaps = s.get_snaps(4)
-        for snap in snaps:
-            process_snap(s,snap, "/home/kevin/Pysnap/saved", False)
-            s.mark_viewed(snap['id'])
-        print "checking"
+    snaps = s.get_snaps(4)
+    for snap in snaps:
+        process_snap(s,snap, "/home/kevin/Pysnap/saved", False)
+        s.mark_viewed(snap['id'])
+    print "checking"
 
 def testSave():
     s=Snapchat()
@@ -51,5 +56,5 @@ def testSave():
         process_snap(s,snap, "/home/kevin/Pysnap/saved", False)
     if s.clear_feed:
         print"cleared"
-
-init()
+setup_environ(settings)
+print(Image.objects.all())

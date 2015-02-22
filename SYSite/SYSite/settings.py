@@ -23,6 +23,22 @@ SECRET_KEY = 'l%s%_uwpvh5*b19ronlvuw9t*%d2wyea=0c###jng*$l0s5ty6'
 DEBUG = True
 
 TEMPLATE_DEBUG = True
+TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
+
+TEMPLATE_DIRS = [
+    TEMPLATE_PATH,
+                 ]
+STATIC_PATH=os.path.join(BASE_DIR, 'static')
+
+STATUC_URL='/static/'
+
+STATICFILES_DIRS=(
+    STATIC_PATH,
+    )
+
+MEDIA_URL='/media/'
+
+MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 
 ALLOWED_HOSTS = []
 
@@ -44,7 +60,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
